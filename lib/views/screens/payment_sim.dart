@@ -1,4 +1,5 @@
 import 'package:exam_file/controllers/cards_controller.dart';
+import 'package:exam_file/controllers/payment_push_controller.dart';
 import 'package:exam_file/models/payment_departments.dart';
 import 'package:exam_file/models/sim_contact.dart';
 import 'package:exam_file/views/widgets/payment_money.dart';
@@ -17,6 +18,7 @@ class _PaymentSimState extends State<PaymentSim> {
   final phoneNumber = TextEditingController();
   final money = TextEditingController();
   final controller = CardsController();
+  final aaaa = PaymentPushController();
   Color color = Colors.red;
   bool phoneNumberIsTrue = false;
   bool summaIsTrue = false;
@@ -311,6 +313,8 @@ class _PaymentSimState extends State<PaymentSim> {
                         TextFormField(
                           onChanged: (value) async{
                             final data = await controller.getCards();
+                            // final a = await controller.
+                            aaaa.getPayments();
 
                             //aka mana shu yerda tekshirip keting kartadagi mablag yetarlimi yoki yoq
                             try {

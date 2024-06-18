@@ -7,4 +7,8 @@ class PaymentPushController{
   Future<void> pushPayment(PaymentDepartments payment) async{
     await services.pushPayment(payment);
   }
+
+  Future<void> getPayments() async{
+    await services.getPayments();
+  }
 }

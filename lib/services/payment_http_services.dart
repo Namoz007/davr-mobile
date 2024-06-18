@@ -1,6 +1,5 @@
 
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:exam_file/models/payment_departments.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,4 +30,26 @@ class PaymentHttpServices {
     // final a = await http.get(urlApi);
     // print(a.body);
   }
+
+
+  Future<void> getPayments() async{
+    List<PaymentDepartments> lst = [];
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String userId = prefs.getString('userId').toString();
+    print(userId);
+    Uri urlApi = Uri.parse(
+        'https://exam-team-5-default-rtdb.firebaseio.com/payments.json');
+    final response = await http.get(urlApi);
+    Map<String,dynamic> a = jsonDecode(response.body);
+    List<String> keys = a.keys.toList();
+    for(int i = 0;i < keys.length;i++) {
+      if (a['${keys[i]}']['userId'] == userId) {
+        lst.add(PaymentDepartments.fromJson(a['${keys[i]}']));
+      }
+    }
+
+    print(lst.length);
+  }
+
+
 }
