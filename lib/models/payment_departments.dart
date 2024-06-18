@@ -1,3 +1,4 @@
+
 import 'package:json_annotation/json_annotation.dart';
 part 'payment_departments.g.dart';
 @JsonSerializable()
@@ -6,14 +7,16 @@ class PaymentDepartments{
   DateTime date;
   String servicesName;
   String servicesAccount;
-  String toCard;
+  String userId ;
+  String fromCard;
 
   PaymentDepartments({
     required this.amount,
     required this.date,
     required this.servicesName,
     required this.servicesAccount,
-    required this.toCard
+    required this.userId,
+    required this.fromCard
 });
 
   factory PaymentDepartments.fromJson(Map<String, dynamic> json) {

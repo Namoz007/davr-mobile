@@ -365,7 +365,8 @@ class _PaymentSimState extends State<PaymentSim> {
                                 date: DateTime.now(),
                                 servicesName: widget.simCard.typeName,
                                 servicesAccount: phoneNumber.text,
-                                toCard: '8600'));  //aka bu yerda kartani bervorasiz
+                                userId: '',
+                                fromCard: '8600'));  //aka bu yerda kartani bervorasiz
                       });
                   Navigator.pop(context);
                 },
